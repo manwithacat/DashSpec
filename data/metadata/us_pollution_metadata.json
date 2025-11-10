@@ -1,0 +1,349 @@
+{
+  "name": "us_pollution",
+  "kaggle_id": "sogun3/uspollution",
+  "description": "US Pollution Data (2000-2016)",
+  "category": "Environmental",
+  "url": "https://www.kaggle.com/datasets/sogun3/uspollution",
+  "error": "'ApiDatasetFile' object has no attribute 'size'",
+  "data_profile": {
+    "shape": {
+      "rows": 1746661,
+      "columns": 31
+    },
+    "memory_usage_mb": 331.53392124176025,
+    "columns": {
+      "unnamed_0": {
+        "dtype": "int32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 134576,
+        "mean": 54714.13675292458,
+        "std": 33729.07630201699,
+        "min": 0.0,
+        "max": 134575.0
+      },
+      "state_code": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 47,
+        "mean": 22.309065124829605,
+        "std": 17.25620548742586,
+        "min": 1.0,
+        "max": 80.0
+      },
+      "county_code": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 73,
+        "mean": 71.69380721273332,
+        "std": 79.48023077169547,
+        "min": 1.0,
+        "max": 650.0
+      },
+      "site_num": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 110,
+        "mean": 1118.2143730237292,
+        "std": 2003.1030687867087,
+        "min": 1.0,
+        "max": 9997.0
+      },
+      "address": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 204
+      },
+      "state": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 47
+      },
+      "county": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 133
+      },
+      "city": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 144
+      },
+      "date_local": {
+        "dtype": "datetime64[ns]",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 5996
+      },
+      "no2_units": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "no2_mean": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 31859,
+        "mean": 12.821928977966309,
+        "std": 9.504814147949219,
+        "min": -2.0,
+        "max": 139.5416717529297
+      },
+      "no2_1st_max_value": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 990,
+        "mean": 25.41485023498535,
+        "std": 15.999629974365234,
+        "min": -2.0,
+        "max": 267.0
+      },
+      "no2_1st_max_hour": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 24,
+        "mean": 11.731022791486156,
+        "std": 7.8775005110388525,
+        "min": 0.0,
+        "max": 23.0
+      },
+      "no2_aqi": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 129,
+        "mean": 23.89821665451968,
+        "std": 15.16280493156836,
+        "min": 0.0,
+        "max": 132.0
+      },
+      "o3_units": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "o3_mean": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 8196,
+        "mean": 0.026124844327569008,
+        "std": 0.0113697350025177,
+        "min": 0.0,
+        "max": 0.09508299827575684
+      },
+      "o3_1st_max_value": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 134,
+        "mean": 0.03920330852270126,
+        "std": 0.015343614853918552,
+        "min": 0.0,
+        "max": 0.14100000262260437
+      },
+      "o3_1st_max_hour": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 24,
+        "mean": 10.170529370038032,
+        "std": 4.00314402687561,
+        "min": 0.0,
+        "max": 23.0
+      },
+      "o3_aqi": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 125,
+        "mean": 36.05012077329258,
+        "std": 19.780423045899912,
+        "min": 0.0,
+        "max": 218.0
+      },
+      "so2_units": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "so2_mean": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 12736,
+        "mean": 1.870363473892212,
+        "std": 2.760434865951538,
+        "min": -2.0,
+        "max": 321.625
+      },
+      "so2_1st_max_value": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 921,
+        "mean": 4.492185592651367,
+        "std": 7.67986536026001,
+        "min": -2.0,
+        "max": 351.0
+      },
+      "so2_1st_max_hour": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 24,
+        "mean": 9.664905783091282,
+        "std": 6.731227787948231,
+        "min": 0.0,
+        "max": 23.0
+      },
+      "so2_aqi": {
+        "dtype": "float32",
+        "missing_count": 872907,
+        "missing_pct": 49.975753738132354,
+        "unique_count": 140,
+        "mean": 7.1159443855285645,
+        "std": 11.937472343444824,
+        "min": 0.0,
+        "max": 200.0
+      },
+      "co_units": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "co_mean": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 34123,
+        "mean": 0.36821770668029785,
+        "std": 0.31402313709259033,
+        "min": -0.4375,
+        "max": 7.508333206176758
+      },
+      "co_1st_max_value": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2698,
+        "mean": 0.6201067566871643,
+        "std": 0.6439360976219177,
+        "min": -0.4000000059604645,
+        "max": 19.899999618530273
+      },
+      "co_1st_max_hour": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 24,
+        "mean": 7.87502612126795,
+        "std": 7.978844304477988,
+        "min": 0.0,
+        "max": 23.0
+      },
+      "co_aqi": {
+        "dtype": "float32",
+        "missing_count": 873323,
+        "missing_pct": 49.99957060929396,
+        "unique_count": 107,
+        "mean": 5.9965949058532715,
+        "std": 5.851836204528809,
+        "min": 0.0,
+        "max": 201.0
+      },
+      "_dataset_name": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "_dataset_category": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      }
+    },
+    "missing_values": {
+      "unnamed_0": 0,
+      "state_code": 0,
+      "county_code": 0,
+      "site_num": 0,
+      "address": 0,
+      "state": 0,
+      "county": 0,
+      "city": 0,
+      "date_local": 0,
+      "no2_units": 0,
+      "no2_mean": 0,
+      "no2_1st_max_value": 0,
+      "no2_1st_max_hour": 0,
+      "no2_aqi": 0,
+      "o3_units": 0,
+      "o3_mean": 0,
+      "o3_1st_max_value": 0,
+      "o3_1st_max_hour": 0,
+      "o3_aqi": 0,
+      "so2_units": 0,
+      "so2_mean": 0,
+      "so2_1st_max_value": 0,
+      "so2_1st_max_hour": 0,
+      "so2_aqi": 872907,
+      "co_units": 0,
+      "co_mean": 0,
+      "co_1st_max_value": 0,
+      "co_1st_max_hour": 0,
+      "co_aqi": 873323,
+      "_dataset_name": 0,
+      "_dataset_category": 0
+    },
+    "dtypes": {
+      "unnamed_0": "int32",
+      "state_code": "int8",
+      "county_code": "int16",
+      "site_num": "int16",
+      "address": "category",
+      "state": "category",
+      "county": "category",
+      "city": "category",
+      "date_local": "datetime64[ns]",
+      "no2_units": "category",
+      "no2_mean": "float32",
+      "no2_1st_max_value": "float32",
+      "no2_1st_max_hour": "int8",
+      "no2_aqi": "int16",
+      "o3_units": "category",
+      "o3_mean": "float32",
+      "o3_1st_max_value": "float32",
+      "o3_1st_max_hour": "int8",
+      "o3_aqi": "int16",
+      "so2_units": "category",
+      "so2_mean": "float32",
+      "so2_1st_max_value": "float32",
+      "so2_1st_max_hour": "int8",
+      "so2_aqi": "float32",
+      "co_units": "category",
+      "co_mean": "float32",
+      "co_1st_max_value": "float32",
+      "co_1st_max_hour": "int8",
+      "co_aqi": "float32",
+      "_dataset_name": "object",
+      "_dataset_category": "object"
+    }
+  }
+}

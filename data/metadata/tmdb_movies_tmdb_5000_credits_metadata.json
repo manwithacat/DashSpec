@@ -1,0 +1,73 @@
+{
+  "name": "tmdb_movies",
+  "kaggle_id": "tmdb/tmdb-movie-metadata",
+  "description": "TMDB 5000 Movie Dataset",
+  "category": "Entertainment",
+  "url": "https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata",
+  "error": "'ApiDatasetFile' object has no attribute 'size'",
+  "data_profile": {
+    "shape": {
+      "rows": 4803,
+      "columns": 6
+    },
+    "memory_usage_mb": 34.88315963745117,
+    "columns": {
+      "movie_id": {
+        "dtype": "int32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4803,
+        "mean": 57165.484280657925,
+        "std": 88694.61403331814,
+        "min": 5.0,
+        "max": 459488.0
+      },
+      "title": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4800
+      },
+      "cast": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4761
+      },
+      "crew": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4776
+      },
+      "_dataset_name": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "_dataset_category": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      }
+    },
+    "missing_values": {
+      "movie_id": 0,
+      "title": 0,
+      "cast": 0,
+      "crew": 0,
+      "_dataset_name": 0,
+      "_dataset_category": 0
+    },
+    "dtypes": {
+      "movie_id": "int32",
+      "title": "object",
+      "cast": "object",
+      "crew": "object",
+      "_dataset_name": "object",
+      "_dataset_category": "object"
+    }
+  }
+}

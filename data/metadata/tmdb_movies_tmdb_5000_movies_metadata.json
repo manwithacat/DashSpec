@@ -1,0 +1,217 @@
+{
+  "name": "tmdb_movies",
+  "kaggle_id": "tmdb/tmdb-movie-metadata",
+  "description": "TMDB 5000 Movie Dataset",
+  "category": "Entertainment",
+  "url": "https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata",
+  "error": "'ApiDatasetFile' object has no attribute 'size'",
+  "data_profile": {
+    "shape": {
+      "rows": 4803,
+      "columns": 21
+    },
+    "memory_usage_mb": 6.239361763000488,
+    "columns": {
+      "budget": {
+        "dtype": "int32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 436,
+        "mean": 29045039.87528628,
+        "std": 40722391.258550294,
+        "min": 0.0,
+        "max": 380000000.0
+      },
+      "genres": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1175
+      },
+      "id": {
+        "dtype": "int32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4803,
+        "mean": 57165.484280657925,
+        "std": 88694.61403331814,
+        "min": 5.0,
+        "max": 459488.0
+      },
+      "keywords": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4222
+      },
+      "original_language": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 37
+      },
+      "original_title": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4801
+      },
+      "overview": {
+        "dtype": "object",
+        "missing_count": 3,
+        "missing_pct": 0.06246096189881324,
+        "unique_count": 4800
+      },
+      "popularity": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4802,
+        "mean": 21.492300033569336,
+        "std": 31.816650390625,
+        "min": 0.0,
+        "max": 875.581298828125
+      },
+      "production_companies": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 3697
+      },
+      "production_countries": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 469
+      },
+      "release_date": {
+        "dtype": "datetime64[ns]",
+        "missing_count": 1,
+        "missing_pct": 0.020820320632937747,
+        "unique_count": 3280
+      },
+      "revenue": {
+        "dtype": "int64",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 3297,
+        "mean": 82260638.65167603,
+        "std": 162857100.94282982,
+        "min": 0.0,
+        "max": 2787965087.0
+      },
+      "runtime": {
+        "dtype": "float32",
+        "missing_count": 2,
+        "missing_pct": 0.041640641265875494,
+        "unique_count": 156,
+        "mean": 106.87586212158203,
+        "std": 22.611934661865234,
+        "min": 0.0,
+        "max": 338.0
+      },
+      "spoken_languages": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 544
+      },
+      "status": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 3
+      },
+      "tagline": {
+        "dtype": "object",
+        "missing_count": 844,
+        "missing_pct": 17.572350614199458,
+        "unique_count": 3944
+      },
+      "title": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4800
+      },
+      "vote_average": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 71,
+        "mean": 6.0921711921691895,
+        "std": 1.1946121454238892,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "vote_count": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1609,
+        "mean": 690.2179887570269,
+        "std": 1234.5858907715426,
+        "min": 0.0,
+        "max": 13752.0
+      },
+      "_dataset_name": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "_dataset_category": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      }
+    },
+    "missing_values": {
+      "budget": 0,
+      "genres": 0,
+      "id": 0,
+      "keywords": 0,
+      "original_language": 0,
+      "original_title": 0,
+      "overview": 3,
+      "popularity": 0,
+      "production_companies": 0,
+      "production_countries": 0,
+      "release_date": 1,
+      "revenue": 0,
+      "runtime": 2,
+      "spoken_languages": 0,
+      "status": 0,
+      "tagline": 844,
+      "title": 0,
+      "vote_average": 0,
+      "vote_count": 0,
+      "_dataset_name": 0,
+      "_dataset_category": 0
+    },
+    "dtypes": {
+      "budget": "int32",
+      "genres": "category",
+      "id": "int32",
+      "keywords": "object",
+      "original_language": "category",
+      "original_title": "object",
+      "overview": "object",
+      "popularity": "float32",
+      "production_companies": "object",
+      "production_countries": "category",
+      "release_date": "datetime64[ns]",
+      "revenue": "int64",
+      "runtime": "float32",
+      "spoken_languages": "category",
+      "status": "category",
+      "tagline": "object",
+      "title": "object",
+      "vote_average": "float32",
+      "vote_count": "int16",
+      "_dataset_name": "object",
+      "_dataset_category": "object"
+    }
+  }
+}

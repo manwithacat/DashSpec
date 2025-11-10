@@ -1,0 +1,421 @@
+{
+  "name": "ibm_hr_attrition",
+  "kaggle_id": "pavansubhasht/ibm-hr-analytics-attrition-dataset",
+  "description": "IBM HR Analytics Employee Attrition",
+  "category": "Human Resources",
+  "url": "https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset",
+  "error": "'ApiDatasetFile' object has no attribute 'size'",
+  "data_profile": {
+    "shape": {
+      "rows": 1470,
+      "columns": 37
+    },
+    "memory_usage_mb": 0.23859786987304688,
+    "columns": {
+      "age": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 43,
+        "mean": 36.923809523809524,
+        "std": 9.135373489136732,
+        "min": 18.0,
+        "max": 60.0
+      },
+      "attrition": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2
+      },
+      "businesstravel": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 3
+      },
+      "dailyrate": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 886,
+        "mean": 802.4857142857143,
+        "std": 403.50909994352816,
+        "min": 102.0,
+        "max": 1499.0
+      },
+      "department": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 3
+      },
+      "distancefromhome": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 29,
+        "mean": 9.19251700680272,
+        "std": 8.106864435666074,
+        "min": 1.0,
+        "max": 29.0
+      },
+      "education": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 5,
+        "mean": 2.912925170068027,
+        "std": 1.0241649445978729,
+        "min": 1.0,
+        "max": 5.0
+      },
+      "educationfield": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 6
+      },
+      "employeecount": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "employeenumber": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1470,
+        "mean": 1024.865306122449,
+        "std": 602.0243348474751,
+        "min": 1.0,
+        "max": 2068.0
+      },
+      "environmentsatisfaction": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4,
+        "mean": 2.721768707482993,
+        "std": 1.0930822146350005,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "gender": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2
+      },
+      "hourlyrate": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 71,
+        "mean": 65.89115646258503,
+        "std": 20.329427593996165,
+        "min": 30.0,
+        "max": 100.0
+      },
+      "jobinvolvement": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4,
+        "mean": 2.7299319727891156,
+        "std": 0.7115611429632304,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "joblevel": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 5,
+        "mean": 2.0639455782312925,
+        "std": 1.106939898935122,
+        "min": 1.0,
+        "max": 5.0
+      },
+      "jobrole": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 9
+      },
+      "jobsatisfaction": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4,
+        "mean": 2.7285714285714286,
+        "std": 1.1028461230547204,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "maritalstatus": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 3
+      },
+      "monthlyincome": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1349,
+        "mean": 6502.931292517007,
+        "std": 4707.956783097994,
+        "min": 1009.0,
+        "max": 19999.0
+      },
+      "monthlyrate": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1427,
+        "mean": 14313.103401360544,
+        "std": 7117.786044059976,
+        "min": 2094.0,
+        "max": 26999.0
+      },
+      "numcompaniesworked": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 10,
+        "mean": 2.6931972789115646,
+        "std": 2.498009006070747,
+        "min": 0.0,
+        "max": 9.0
+      },
+      "over18": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "overtime": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2
+      },
+      "percentsalaryhike": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 15,
+        "mean": 15.209523809523809,
+        "std": 3.6599377165396407,
+        "min": 11.0,
+        "max": 25.0
+      },
+      "performancerating": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 3.1537414965986397,
+        "std": 0.36082352460434397,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "relationshipsatisfaction": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4,
+        "mean": 2.7122448979591836,
+        "std": 1.0812088864403524,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "standardhours": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1,
+        "mean": 80.0,
+        "std": 0.0,
+        "min": 80.0,
+        "max": 80.0
+      },
+      "stockoptionlevel": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4,
+        "mean": 0.7938775510204081,
+        "std": 0.852076667930838,
+        "min": 0.0,
+        "max": 3.0
+      },
+      "totalworkingyears": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 40,
+        "mean": 11.279591836734694,
+        "std": 7.780781675514997,
+        "min": 0.0,
+        "max": 40.0
+      },
+      "trainingtimeslastyear": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 7,
+        "mean": 2.7993197278911564,
+        "std": 1.2892706207958455,
+        "min": 0.0,
+        "max": 6.0
+      },
+      "worklifebalance": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4,
+        "mean": 2.7612244897959184,
+        "std": 0.7064758297141507,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "yearsatcompany": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 37,
+        "mean": 7.0081632653061225,
+        "std": 6.126525152403569,
+        "min": 0.0,
+        "max": 40.0
+      },
+      "yearsincurrentrole": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 19,
+        "mean": 4.229251700680272,
+        "std": 3.623137034670628,
+        "min": 0.0,
+        "max": 18.0
+      },
+      "yearssincelastpromotion": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 16,
+        "mean": 2.1877551020408164,
+        "std": 3.222430279137967,
+        "min": 0.0,
+        "max": 15.0
+      },
+      "yearswithcurrmanager": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 18,
+        "mean": 4.12312925170068,
+        "std": 3.5681361205404376,
+        "min": 0.0,
+        "max": 17.0
+      },
+      "_dataset_name": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "_dataset_category": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      }
+    },
+    "missing_values": {
+      "age": 0,
+      "attrition": 0,
+      "businesstravel": 0,
+      "dailyrate": 0,
+      "department": 0,
+      "distancefromhome": 0,
+      "education": 0,
+      "educationfield": 0,
+      "employeecount": 0,
+      "employeenumber": 0,
+      "environmentsatisfaction": 0,
+      "gender": 0,
+      "hourlyrate": 0,
+      "jobinvolvement": 0,
+      "joblevel": 0,
+      "jobrole": 0,
+      "jobsatisfaction": 0,
+      "maritalstatus": 0,
+      "monthlyincome": 0,
+      "monthlyrate": 0,
+      "numcompaniesworked": 0,
+      "over18": 0,
+      "overtime": 0,
+      "percentsalaryhike": 0,
+      "performancerating": 0,
+      "relationshipsatisfaction": 0,
+      "standardhours": 0,
+      "stockoptionlevel": 0,
+      "totalworkingyears": 0,
+      "trainingtimeslastyear": 0,
+      "worklifebalance": 0,
+      "yearsatcompany": 0,
+      "yearsincurrentrole": 0,
+      "yearssincelastpromotion": 0,
+      "yearswithcurrmanager": 0,
+      "_dataset_name": 0,
+      "_dataset_category": 0
+    },
+    "dtypes": {
+      "age": "int8",
+      "attrition": "category",
+      "businesstravel": "category",
+      "dailyrate": "int16",
+      "department": "category",
+      "distancefromhome": "int8",
+      "education": "int8",
+      "educationfield": "category",
+      "employeecount": "int8",
+      "employeenumber": "int16",
+      "environmentsatisfaction": "int8",
+      "gender": "category",
+      "hourlyrate": "int8",
+      "jobinvolvement": "int8",
+      "joblevel": "int8",
+      "jobrole": "category",
+      "jobsatisfaction": "int8",
+      "maritalstatus": "category",
+      "monthlyincome": "int16",
+      "monthlyrate": "int16",
+      "numcompaniesworked": "int8",
+      "over18": "category",
+      "overtime": "category",
+      "percentsalaryhike": "int8",
+      "performancerating": "int8",
+      "relationshipsatisfaction": "int8",
+      "standardhours": "int8",
+      "stockoptionlevel": "int8",
+      "totalworkingyears": "int8",
+      "trainingtimeslastyear": "int8",
+      "worklifebalance": "int8",
+      "yearsatcompany": "int8",
+      "yearsincurrentrole": "int8",
+      "yearssincelastpromotion": "int8",
+      "yearswithcurrmanager": "int8",
+      "_dataset_name": "object",
+      "_dataset_category": "object"
+    }
+  }
+}

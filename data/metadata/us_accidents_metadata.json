@@ -1,0 +1,509 @@
+{
+  "name": "us_accidents",
+  "kaggle_id": "sobhanmoosavi/us-accidents",
+  "description": "US Accidents (2016 - 2023)",
+  "category": "Transportation & Safety",
+  "url": "https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents",
+  "error": "'ApiDatasetFile' object has no attribute 'size'",
+  "data_profile": {
+    "shape": {
+      "rows": 7728394,
+      "columns": 48
+    },
+    "memory_usage_mb": 2918.6074800491333,
+    "columns": {
+      "id": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 7728394
+      },
+      "source": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 3
+      },
+      "severity": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 4,
+        "mean": 2.212384487643875,
+        "std": 0.48753133393603604,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "start_time": {
+        "dtype": "datetime64[ns]",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 5801064
+      },
+      "end_time": {
+        "dtype": "datetime64[ns]",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 6463024
+      },
+      "start_lat": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1900527,
+        "mean": 36.201194763183594,
+        "std": 5.07607889175415,
+        "min": 24.554800033569336,
+        "max": 49.002201080322266
+      },
+      "start_lng": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1750819,
+        "mean": -94.70255279541016,
+        "std": 17.391756057739258,
+        "min": -124.62383270263672,
+        "max": -67.11316680908203
+      },
+      "end_lat": {
+        "dtype": "float32",
+        "missing_count": 3402762,
+        "missing_pct": 44.02935461106149,
+        "unique_count": 1286002,
+        "mean": 36.2618293762207,
+        "std": 5.272904396057129,
+        "min": 24.56601333618164,
+        "max": 49.07500076293945
+      },
+      "end_lng": {
+        "dtype": "float32",
+        "missing_count": 3402762,
+        "missing_pct": 44.02935461106149,
+        "unique_count": 1203362,
+        "mean": -95.7255630493164,
+        "std": 18.107927322387695,
+        "min": -124.54574584960938,
+        "max": -67.10924530029297
+      },
+      "distancemi": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 20674,
+        "mean": 0.5618422627449036,
+        "std": 1.7768105268478394,
+        "min": 0.0,
+        "max": 441.75
+      },
+      "description": {
+        "dtype": "category",
+        "missing_count": 5,
+        "missing_pct": 6.469649451102002e-05,
+        "unique_count": 3761578
+      },
+      "street": {
+        "dtype": "category",
+        "missing_count": 10869,
+        "missing_pct": 0.1406372397680553,
+        "unique_count": 336306
+      },
+      "city": {
+        "dtype": "category",
+        "missing_count": 253,
+        "missing_pct": 0.003273642622257613,
+        "unique_count": 13678
+      },
+      "county": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1871
+      },
+      "state": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 49
+      },
+      "zipcode": {
+        "dtype": "category",
+        "missing_count": 1915,
+        "missing_pct": 0.024778757397720667,
+        "unique_count": 825094
+      },
+      "country": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "timezone": {
+        "dtype": "category",
+        "missing_count": 7808,
+        "missing_pct": 0.10103004582840884,
+        "unique_count": 4
+      },
+      "airport_code": {
+        "dtype": "category",
+        "missing_count": 22635,
+        "missing_pct": 0.2928810306513876,
+        "unique_count": 2045
+      },
+      "weather_timestamp": {
+        "dtype": "datetime64[ns]",
+        "missing_count": 120228,
+        "missing_pct": 1.5556660284141828,
+        "unique_count": 941331
+      },
+      "temperaturef": {
+        "dtype": "float32",
+        "missing_count": 163853,
+        "missing_pct": 2.1201429430228327,
+        "unique_count": 860,
+        "mean": 61.66328811645508,
+        "std": 19.013652801513672,
+        "min": -89.0,
+        "max": 207.0
+      },
+      "wind_chillf": {
+        "dtype": "float32",
+        "missing_count": 1999019,
+        "missing_pct": 25.86590435218494,
+        "unique_count": 1001,
+        "mean": 58.25104522705078,
+        "std": 22.38983154296875,
+        "min": -89.0,
+        "max": 207.0
+      },
+      "humidity": {
+        "dtype": "float32",
+        "missing_count": 174144,
+        "missing_pct": 2.253301268025414,
+        "unique_count": 100,
+        "mean": 64.83103942871094,
+        "std": 22.820968627929688,
+        "min": 1.0,
+        "max": 100.0
+      },
+      "pressurein": {
+        "dtype": "float32",
+        "missing_count": 140679,
+        "missing_pct": 1.820287630263157,
+        "unique_count": 1144,
+        "mean": 29.538986206054688,
+        "std": 1.0061898231506348,
+        "min": 0.0,
+        "max": 58.630001068115234
+      },
+      "visibilitymi": {
+        "dtype": "float32",
+        "missing_count": 177098,
+        "missing_pct": 2.291523956982524,
+        "unique_count": 92,
+        "mean": 9.090376853942871,
+        "std": 2.6883158683776855,
+        "min": 0.0,
+        "max": 140.0
+      },
+      "wind_direction": {
+        "dtype": "category",
+        "missing_count": 175206,
+        "missing_pct": 2.2670428034595544,
+        "unique_count": 24
+      },
+      "wind_speedmph": {
+        "dtype": "float32",
+        "missing_count": 571233,
+        "missing_pct": 7.391354529802699,
+        "unique_count": 184,
+        "mean": 7.685489654541016,
+        "std": 5.424983501434326,
+        "min": 0.0,
+        "max": 1087.0
+      },
+      "precipitationin": {
+        "dtype": "float32",
+        "missing_count": 2203586,
+        "missing_pct": 28.512857910712107,
+        "unique_count": 299,
+        "mean": 0.008407209999859333,
+        "std": 0.110224649310112,
+        "min": 0.0,
+        "max": 36.470001220703125
+      },
+      "weather_condition": {
+        "dtype": "category",
+        "missing_count": 173459,
+        "missing_pct": 2.244437848277404,
+        "unique_count": 144
+      },
+      "amenity": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.012464944204449204,
+        "std": 0.1109485059079272,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "bump": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.00045468696342344865,
+        "std": 0.02131854314898895,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "crossing": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.11305880626686476,
+        "std": 0.3166646894863014,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "give_way": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.004733454324404268,
+        "std": 0.0686370843213769,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "junction": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.07392764913383039,
+        "std": 0.261653130472244,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "no_exit": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.002528985970435772,
+        "std": 0.05022539722891836,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "railway": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.008666613011707219,
+        "std": 0.09269036596266574,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "roundabout": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 3.221885426648797e-05,
+        "std": 0.005676074381179108,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "station": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.026124573876538902,
+        "std": 0.15950574851188104,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "stop": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.027738104449643742,
+        "std": 0.16422151351374706,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "traffic_calming": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.0009831279305894602,
+        "std": 0.03133945623565237,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "traffic_signal": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.14799607783971677,
+        "std": 0.35509612092975673,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "turning_loop": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "sunrise_sunset": {
+        "dtype": "category",
+        "missing_count": 23246,
+        "missing_pct": 0.30078694228063424,
+        "unique_count": 2
+      },
+      "civil_twilight": {
+        "dtype": "category",
+        "missing_count": 23246,
+        "missing_pct": 0.30078694228063424,
+        "unique_count": 2
+      },
+      "nautical_twilight": {
+        "dtype": "category",
+        "missing_count": 23246,
+        "missing_pct": 0.30078694228063424,
+        "unique_count": 2
+      },
+      "astronomical_twilight": {
+        "dtype": "category",
+        "missing_count": 23246,
+        "missing_pct": 0.30078694228063424,
+        "unique_count": 2
+      },
+      "_dataset_name": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "_dataset_category": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      }
+    },
+    "missing_values": {
+      "id": 0,
+      "source": 0,
+      "severity": 0,
+      "start_time": 0,
+      "end_time": 0,
+      "start_lat": 0,
+      "start_lng": 0,
+      "end_lat": 3402762,
+      "end_lng": 3402762,
+      "distancemi": 0,
+      "description": 5,
+      "street": 10869,
+      "city": 253,
+      "county": 0,
+      "state": 0,
+      "zipcode": 1915,
+      "country": 0,
+      "timezone": 7808,
+      "airport_code": 22635,
+      "weather_timestamp": 120228,
+      "temperaturef": 163853,
+      "wind_chillf": 1999019,
+      "humidity": 174144,
+      "pressurein": 140679,
+      "visibilitymi": 177098,
+      "wind_direction": 175206,
+      "wind_speedmph": 571233,
+      "precipitationin": 2203586,
+      "weather_condition": 173459,
+      "amenity": 0,
+      "bump": 0,
+      "crossing": 0,
+      "give_way": 0,
+      "junction": 0,
+      "no_exit": 0,
+      "railway": 0,
+      "roundabout": 0,
+      "station": 0,
+      "stop": 0,
+      "traffic_calming": 0,
+      "traffic_signal": 0,
+      "turning_loop": 0,
+      "sunrise_sunset": 23246,
+      "civil_twilight": 23246,
+      "nautical_twilight": 23246,
+      "astronomical_twilight": 23246,
+      "_dataset_name": 0,
+      "_dataset_category": 0
+    },
+    "dtypes": {
+      "id": "object",
+      "source": "category",
+      "severity": "int8",
+      "start_time": "datetime64[ns]",
+      "end_time": "datetime64[ns]",
+      "start_lat": "float32",
+      "start_lng": "float32",
+      "end_lat": "float32",
+      "end_lng": "float32",
+      "distancemi": "float32",
+      "description": "category",
+      "street": "category",
+      "city": "category",
+      "county": "category",
+      "state": "category",
+      "zipcode": "category",
+      "country": "category",
+      "timezone": "category",
+      "airport_code": "category",
+      "weather_timestamp": "datetime64[ns]",
+      "temperaturef": "float32",
+      "wind_chillf": "float32",
+      "humidity": "float32",
+      "pressurein": "float32",
+      "visibilitymi": "float32",
+      "wind_direction": "category",
+      "wind_speedmph": "float32",
+      "precipitationin": "float32",
+      "weather_condition": "category",
+      "amenity": "bool",
+      "bump": "bool",
+      "crossing": "bool",
+      "give_way": "bool",
+      "junction": "bool",
+      "no_exit": "bool",
+      "railway": "bool",
+      "roundabout": "bool",
+      "station": "bool",
+      "stop": "bool",
+      "traffic_calming": "bool",
+      "traffic_signal": "bool",
+      "turning_loop": "bool",
+      "sunrise_sunset": "category",
+      "civil_twilight": "category",
+      "nautical_twilight": "category",
+      "astronomical_twilight": "category",
+      "_dataset_name": "object",
+      "_dataset_category": "object"
+    }
+  }
+}

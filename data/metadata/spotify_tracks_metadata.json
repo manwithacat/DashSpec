@@ -1,0 +1,269 @@
+{
+  "name": "spotify_tracks",
+  "kaggle_id": "maharshipandya/-spotify-tracks-dataset",
+  "description": "Spotify Tracks Dataset",
+  "category": "Entertainment",
+  "url": "https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset",
+  "error": "'ApiDatasetFile' object has no attribute 'size'",
+  "data_profile": {
+    "shape": {
+      "rows": 114000,
+      "columns": 23
+    },
+    "memory_usage_mb": 42.40346431732178,
+    "columns": {
+      "unnamed_0": {
+        "dtype": "int32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 114000,
+        "mean": 56999.5,
+        "std": 32909.10968105944,
+        "min": 0.0,
+        "max": 113999.0
+      },
+      "track_id": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 89741
+      },
+      "artists": {
+        "dtype": "category",
+        "missing_count": 1,
+        "missing_pct": 0.0008771929824561403,
+        "unique_count": 31437
+      },
+      "album_name": {
+        "dtype": "category",
+        "missing_count": 1,
+        "missing_pct": 0.0008771929824561403,
+        "unique_count": 46589
+      },
+      "track_name": {
+        "dtype": "object",
+        "missing_count": 1,
+        "missing_pct": 0.0008771929824561403,
+        "unique_count": 73608
+      },
+      "popularity": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 101,
+        "mean": 33.2385350877193,
+        "std": 22.30507849337216,
+        "min": 0.0,
+        "max": 100.0
+      },
+      "duration_ms": {
+        "dtype": "int32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 50697,
+        "mean": 228029.15311403509,
+        "std": 107297.71264491302,
+        "min": 0.0,
+        "max": 5237295.0
+      },
+      "explicit": {
+        "dtype": "bool",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.0855,
+        "std": 0.27962552794946405,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "danceability": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1174,
+        "mean": 0.5668001174926758,
+        "std": 0.17354217171669006,
+        "min": 0.0,
+        "max": 0.9850000143051147
+      },
+      "energy": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2083,
+        "mean": 0.6413828134536743,
+        "std": 0.2515290677547455,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "key": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 12,
+        "mean": 5.309140350877193,
+        "std": 3.5599871245365344,
+        "min": 0.0,
+        "max": 11.0
+      },
+      "loudness": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 19480,
+        "mean": -8.258960723876953,
+        "std": 5.029336929321289,
+        "min": -49.53099822998047,
+        "max": 4.5320000648498535
+      },
+      "mode": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 2,
+        "mean": 0.6375526315789474,
+        "std": 0.48070916422995186,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "speechiness": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1489,
+        "mean": 0.08465210348367691,
+        "std": 0.10573236644268036,
+        "min": 0.0,
+        "max": 0.9649999737739563
+      },
+      "acousticness": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 5061,
+        "mean": 0.31491008400917053,
+        "std": 0.3325226902961731,
+        "min": 0.0,
+        "max": 0.9959999918937683
+      },
+      "instrumentalness": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 5346,
+        "mean": 0.15604957938194275,
+        "std": 0.3095548450946808,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "liveness": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1722,
+        "mean": 0.2135528326034546,
+        "std": 0.19037769734859467,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "valence": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1790,
+        "mean": 0.4740682542324066,
+        "std": 0.2592610716819763,
+        "min": 0.0,
+        "max": 0.9950000047683716
+      },
+      "tempo": {
+        "dtype": "float32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 45653,
+        "mean": 122.14784240722656,
+        "std": 29.97819709777832,
+        "min": 0.0,
+        "max": 243.3719940185547
+      },
+      "time_signature": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 5,
+        "mean": 3.9040350877192984,
+        "std": 0.4326208483475784,
+        "min": 0.0,
+        "max": 5.0
+      },
+      "track_genre": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 114
+      },
+      "_dataset_name": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "_dataset_category": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      }
+    },
+    "missing_values": {
+      "unnamed_0": 0,
+      "track_id": 0,
+      "artists": 1,
+      "album_name": 1,
+      "track_name": 1,
+      "popularity": 0,
+      "duration_ms": 0,
+      "explicit": 0,
+      "danceability": 0,
+      "energy": 0,
+      "key": 0,
+      "loudness": 0,
+      "mode": 0,
+      "speechiness": 0,
+      "acousticness": 0,
+      "instrumentalness": 0,
+      "liveness": 0,
+      "valence": 0,
+      "tempo": 0,
+      "time_signature": 0,
+      "track_genre": 0,
+      "_dataset_name": 0,
+      "_dataset_category": 0
+    },
+    "dtypes": {
+      "unnamed_0": "int32",
+      "track_id": "object",
+      "artists": "category",
+      "album_name": "category",
+      "track_name": "object",
+      "popularity": "int8",
+      "duration_ms": "int32",
+      "explicit": "bool",
+      "danceability": "float32",
+      "energy": "float32",
+      "key": "int8",
+      "loudness": "float32",
+      "mode": "int8",
+      "speechiness": "float32",
+      "acousticness": "float32",
+      "instrumentalness": "float32",
+      "liveness": "float32",
+      "valence": "float32",
+      "tempo": "float32",
+      "time_signature": "int8",
+      "track_genre": "category",
+      "_dataset_name": "object",
+      "_dataset_category": "object"
+    }
+  }
+}

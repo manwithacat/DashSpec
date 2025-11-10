@@ -1,0 +1,137 @@
+{
+  "name": "amazon_food_reviews",
+  "kaggle_id": "snap/amazon-fine-food-reviews",
+  "description": "Amazon Fine Food Reviews",
+  "category": "E-commerce & Retail",
+  "url": "https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews",
+  "error": "'ApiDatasetFile' object has no attribute 'size'",
+  "data_profile": {
+    "shape": {
+      "rows": 568454,
+      "columns": 12
+    },
+    "memory_usage_mb": 441.8541898727417,
+    "columns": {
+      "id": {
+        "dtype": "int32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 568454,
+        "mean": 284227.5,
+        "std": 164098.67929846357,
+        "min": 1.0,
+        "max": 568454.0
+      },
+      "productid": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 74258
+      },
+      "userid": {
+        "dtype": "category",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 256059
+      },
+      "profilename": {
+        "dtype": "category",
+        "missing_count": 26,
+        "missing_pct": 0.004573808962554577,
+        "unique_count": 218415
+      },
+      "helpfulnessnumerator": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 231,
+        "mean": 1.7438174416927315,
+        "std": 7.63651270682078,
+        "min": 0.0,
+        "max": 866.0
+      },
+      "helpfulnessdenominator": {
+        "dtype": "int16",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 234,
+        "mean": 2.2288100708236724,
+        "std": 8.289740293185586,
+        "min": 0.0,
+        "max": 923.0
+      },
+      "score": {
+        "dtype": "int8",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 5,
+        "mean": 4.183198640523243,
+        "std": 1.310436024824306,
+        "min": 1.0,
+        "max": 5.0
+      },
+      "time": {
+        "dtype": "int32",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 3168,
+        "mean": 1296256604.9024196,
+        "std": 48043312.33241568,
+        "min": 939340800.0,
+        "max": 1351209600.0
+      },
+      "summary": {
+        "dtype": "object",
+        "missing_count": 27,
+        "missing_pct": 0.0047497246918836,
+        "unique_count": 295742
+      },
+      "text": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 393579
+      },
+      "_dataset_name": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      },
+      "_dataset_category": {
+        "dtype": "object",
+        "missing_count": 0,
+        "missing_pct": 0.0,
+        "unique_count": 1
+      }
+    },
+    "missing_values": {
+      "id": 0,
+      "productid": 0,
+      "userid": 0,
+      "profilename": 26,
+      "helpfulnessnumerator": 0,
+      "helpfulnessdenominator": 0,
+      "score": 0,
+      "time": 0,
+      "summary": 27,
+      "text": 0,
+      "_dataset_name": 0,
+      "_dataset_category": 0
+    },
+    "dtypes": {
+      "id": "int32",
+      "productid": "category",
+      "userid": "category",
+      "profilename": "category",
+      "helpfulnessnumerator": "int16",
+      "helpfulnessdenominator": "int16",
+      "score": "int8",
+      "time": "int32",
+      "summary": "object",
+      "text": "object",
+      "_dataset_name": "object",
+      "_dataset_category": "object"
+    }
+  }
+}

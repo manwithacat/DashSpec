@@ -1,0 +1,33 @@
+{
+  "dataset_name": "power_consumption",
+  "rows": 2075259,
+  "columns": [
+    "datetime",
+    "globalactivepower",
+    "globalreactivepower",
+    "voltage",
+    "globalintensity",
+    "submetering1",
+    "submetering2",
+    "submetering3"
+  ],
+  "dtypes": {
+    "datetime": "datetime64[ns]",
+    "globalactivepower": "float64",
+    "globalreactivepower": "float64",
+    "voltage": "float64",
+    "globalintensity": "float64",
+    "submetering1": "float64",
+    "submetering2": "float64",
+    "submetering3": "float64"
+  },
+  "missing_pct": {
+    "globalactivepower": "1.25%",
+    "globalreactivepower": "1.25%",
+    "voltage": "1.25%",
+    "globalintensity": "1.25%",
+    "submetering1": "1.25%",
+    "submetering2": "1.25%",
+    "submetering3": "1.25%"
+  }
+}
