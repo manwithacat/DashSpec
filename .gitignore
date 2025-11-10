@@ -215,5 +215,8 @@ data/raw/
 # dev_docs/  # Commented out for demo purposes - allows dev docs in repo
 
 
-# Kaggle
-.kaggle/.claude/
+# Kaggle API credentials
+.kaggle/
+
+# Claude Code configuration
+.claude/
