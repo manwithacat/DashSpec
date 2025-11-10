@@ -1,0 +1,63 @@
+# Kaggle Datasets Configuration
+# Extracted from docs/datasources.md
+
+datasets:
+  - name: credit_card_fraud
+    kaggle_id: mlg-ulb/creditcardfraud
+    description: Credit Card Fraud Detection
+    project_category: fraud_detection
+    url: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
+  - name: amazon_food_reviews
+    kaggle_id: snap/amazon-fine-food-reviews
+    description: Amazon Fine Food Reviews
+    project_category: sentiment_analysis
+    url: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
+
+  - name: us_pollution
+    kaggle_id: sogun3/uspollution
+    description: Air Quality Data
+    project_category: air_quality
+    url: https://www.kaggle.com/datasets/sogun3/uspollution
+
+  - name: ibm_hr_attrition
+    kaggle_id: pavansubhasht/ibm-hr-analytics-attrition-dataset
+    description: HR Employee Attrition
+    project_category: employee_retention
+    url: https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset
+
+  - name: power_consumption
+    kaggle_id: uciml/electric-power-consumption-data-set
+    description: Global Power Consumption
+    project_category: energy_forecasting
+    url: https://www.kaggle.com/datasets/uciml/electric-power-consumption-data-set
+
+  - name: us_accidents
+    kaggle_id: sobhanmoosavi/us-accidents
+    description: US Traffic Accidents
+    project_category: traffic_analysis
+    url: https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
+
+  - name: tmdb_movies
+    kaggle_id: tmdb/tmdb-movie-metadata
+    description: TMDB Box Office Data
+    project_category: movie_analysis
+    url: https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
+
+  - name: network_intrusion
+    kaggle_id: sampadab17/network-intrusion-detection
+    description: Network Intrusion Detection
+    project_category: cybersecurity
+    url: https://www.kaggle.com/datasets/sampadab17/network-intrusion-detection
+
+  - name: spotify_tracks
+    kaggle_id: maharshipandya/-spotify-tracks-dataset
+    description: Spotify Songs Dataset
+    project_category: music_analysis
+    url: https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset
+
+  - name: food_price_inflation
+    kaggle_id: sonialikhan/global-food-price-inflation-2024
+    description: Global Food Price Inflation 2024
+    project_category: economics_inflation
+    url: https://www.kaggle.com/datasets/sonialikhan/global-food-price-inflation-2024
