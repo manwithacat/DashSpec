@@ -1,0 +1,830 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dashspec.io/schema/v1.3",
+  "title": "DashSpec Dashboard Specification v1.3",
+  "description": "Enhanced schema with default formatting, precision control, and field-level overrides",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "dsl_version",
+    "dashboard"
+  ],
+  "properties": {
+    "dsl_version": {
+      "type": "string",
+      "pattern": "^1\\.3\\.\\d+$",
+      "description": "Semantic version of the DSL (1.3.x only - use schema_v1.2.json for v1.2)"
+    },
+    "validation_policy": {
+      "type": "object",
+      "description": "Controls validation strictness and error handling",
+      "properties": {
+        "strictness": {
+          "type": "string",
+          "enum": ["strict", "moderate", "relaxed"],
+          "default": "moderate",
+          "description": "Validation strictness level"
+        },
+        "suppress_codes": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "List of violation codes to suppress (e.g., ['DQ_QUESTIONABLE_METHOD'])"
+        }
+      }
+    },
+    "dashboard": {
+      "$ref": "#/definitions/Dashboard"
+    }
+  },
+  "definitions": {
+    "Dashboard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "data_source",
+        "pages"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Dataset metadata for context and human interpretability",
+          "properties": {
+            "dataset_name": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "rows": {
+              "type": "integer"
+            },
+            "description": {
+              "type": "string"
+            },
+            "narrative": {
+              "type": "string",
+              "description": "Human-readable summary of data structure and content"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Default currency code (ISO 4217) for monetary fields, e.g., USD, EUR, GBP"
+            },
+            "use_cases": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "data_source": {
+          "$ref": "#/definitions/DataSource"
+        },
+        "pages": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 20,
+          "items": {
+            "$ref": "#/definitions/Page"
+          }
+        }
+      }
+    },
+    "DataSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "path"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "parquet",
+            "csv"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "schema": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": [
+              "string",
+              "integer",
+              "float",
+              "boolean",
+              "datetime",
+              "category"
+            ]
+          }
+        },
+        "default_formatting": {
+          "$ref": "#/definitions/FieldFormat",
+          "description": "Default formatting applied to all numeric fields (can be overridden per field)"
+        },
+        "column_labels": {
+          "type": "object",
+          "description": "Human-readable labels for column names",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "formatting": {
+          "type": "object",
+          "description": "Field-specific formatting rules (overrides default_formatting)",
+          "additionalProperties": {
+            "$ref": "#/definitions/FieldFormat"
+          }
+        },
+        "data_quality": {
+          "$ref": "#/definitions/DataQuality"
+        }
+      }
+    },
+    "FieldFormat": {
+      "type": "object",
+      "description": "Formatting specification for a field",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "number",
+            "currency",
+            "percent",
+            "integer",
+            "date",
+            "datetime",
+            "string"
+          ],
+          "description": "Format type"
+        },
+        "precision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "Number of decimal places or significant digits"
+        },
+        "use_thousands_separator": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use comma separators for thousands"
+        },
+        "currency_code": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$",
+          "description": "ISO 4217 currency code (e.g., USD, EUR, GBP)"
+        },
+        "significant_digits": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Number of significant digits instead of decimal places"
+        },
+        "date_format": {
+          "type": "string",
+          "description": "strftime format string for dates"
+        }
+      }
+    },
+    "Page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "layout"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "filters": {
+          "type": "array",
+          "maxItems": 10,
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/definitions/Metric"
+          }
+        },
+        "layout": {
+          "$ref": "#/definitions/Layout"
+        }
+      }
+    },
+    "Filter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "field",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "field": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "range",
+            "slider",
+            "select",
+            "multiselect",
+            "date_range"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "default": {}
+      }
+    },
+    "Metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "field",
+        "aggregation"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "field": {
+          "type": "string"
+        },
+        "aggregation": {
+          "type": "string",
+          "enum": [
+            "sum",
+            "mean",
+            "median",
+            "count",
+            "count_unique",
+            "min",
+            "max",
+            "std"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "format": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "Legacy simple format (integer, percent, float, date)"
+            },
+            {
+              "$ref": "#/definitions/FieldFormat",
+              "description": "Enhanced format specification"
+            }
+          ]
+        },
+        "filter": {
+          "$ref": "#/definitions/MetricFilter"
+        }
+      }
+    },
+    "MetricFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "field",
+        "operator",
+        "value"
+      ],
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "operator": {
+          "type": "string",
+          "enum": [
+            "eq",
+            "ne",
+            "gt",
+            "gte",
+            "lt",
+            "lte",
+            "in",
+            "not_in"
+          ]
+        },
+        "value": {}
+      }
+    },
+    "Layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "components"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "single",
+            "grid",
+            "tabs"
+          ]
+        },
+        "components": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/definitions/Component"
+          }
+        }
+      }
+    },
+    "Component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "visualization",
+            "metric_card",
+            "text",
+            "divider"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "width": {
+          "type": "string",
+          "enum": [
+            "full",
+            "half",
+            "third",
+            "quarter"
+          ]
+        },
+        "metric_id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "visualization": {
+          "$ref": "#/definitions/Visualization"
+        }
+      }
+    },
+    "Visualization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chart_type"
+      ],
+      "properties": {
+        "chart_type": {
+          "type": "string",
+          "enum": [
+            "table",
+            "summary",
+            "histogram",
+            "ecdf",
+            "boxplot",
+            "violin",
+            "kde",
+            "scatter",
+            "hexbin",
+            "kde2d",
+            "line",
+            "bar",
+            "heatmap",
+            "corr_heatmap",
+            "pie",
+            "sunburst",
+            "treemap"
+          ]
+        },
+        "roles": {
+          "type": "object",
+          "description": "Role-based field mapping",
+          "properties": {
+            "x": {
+              "type": "string"
+            },
+            "y": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "size": {
+              "type": "string"
+            },
+            "by": {
+              "type": "string"
+            },
+            "time": {
+              "type": "string"
+            }
+          }
+        },
+        "params": {
+          "type": "object",
+          "description": "Chart-specific parameters",
+          "properties": {
+            "bins": {
+              "type": "integer",
+              "minimum": 5,
+              "maximum": 200
+            },
+            "log_x": {
+              "type": "boolean"
+            },
+            "log_y": {
+              "type": "boolean"
+            },
+            "bandwidth": {
+              "type": "number"
+            },
+            "resample": {
+              "type": "string"
+            },
+            "rolling_window": {
+              "type": "integer"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "pearson",
+                "spearman",
+                "kendall"
+              ]
+            },
+            "mask_upper": {
+              "type": "boolean"
+            },
+            "normalize": {
+              "type": "string",
+              "enum": [
+                "true",
+                "pred",
+                "all",
+                "none"
+              ]
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "percentiles": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "trendline": {
+              "type": "string",
+              "enum": [
+                "ols",
+                "loess",
+                "none"
+              ]
+            },
+            "alpha": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "sampling": {
+              "type": "integer",
+              "description": "Subsample for performance"
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Row limit for visualization",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "formatting": {
+              "type": "object",
+              "description": "Field-specific formatting for this visualization",
+              "additionalProperties": {
+                "$ref": "#/definitions/FieldFormat"
+              }
+            },
+            "column_labels": {
+              "type": "object",
+              "description": "Column labels override for this visualization",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x_field": {
+          "type": "string",
+          "description": "Legacy: use roles.x instead"
+        },
+        "y_field": {
+          "type": "string",
+          "description": "Legacy: use roles.y instead"
+        },
+        "color_field": {
+          "type": "string",
+          "description": "Legacy: use roles.color instead"
+        },
+        "size_field": {
+          "type": "string",
+          "description": "Legacy: use roles.size instead"
+        },
+        "aggregation": {
+          "type": "string",
+          "enum": [
+            "sum",
+            "mean",
+            "median",
+            "count",
+            "min",
+            "max",
+            "std",
+            "none"
+          ]
+        },
+        "group_by": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sort": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "order": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        }
+      }
+    },
+    "DataQuality": {
+      "type": "object",
+      "description": "Data quality rules and transformations",
+      "properties": {
+        "missing_values": {
+          "type": "object",
+          "properties": {
+            "strategy": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "drop",
+                "fill",
+                "flag"
+              ]
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fields": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "drop_rows",
+                      "fill_forward",
+                      "fill_backward",
+                      "fill_value",
+                      "interpolate",
+                      "flag"
+                    ]
+                  },
+                  "value": {},
+                  "limit": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "outliers": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fields": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "method": {
+                    "type": "string",
+                    "enum": [
+                      "iqr",
+                      "zscore",
+                      "percentile"
+                    ]
+                  },
+                  "threshold": {
+                    "type": "number"
+                  },
+                  "lower": {
+                    "type": "number"
+                  },
+                  "upper": {
+                    "type": "number"
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "cap",
+                      "drop",
+                      "flag",
+                      "none"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "duplicates": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "subset": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "keep": {
+              "type": "string",
+              "enum": [
+                "first",
+                "last",
+                "none"
+              ]
+            },
+            "action": {
+              "type": "string",
+              "enum": [
+                "drop",
+                "flag"
+              ]
+            }
+          }
+        },
+        "validation": {
+          "type": "object",
+          "properties": {
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "constraint": {
+                    "type": "string",
+                    "enum": [
+                      "range",
+                      "in_set",
+                      "not_null",
+                      "unique"
+                    ]
+                  },
+                  "min": {
+                    "type": "number"
+                  },
+                  "max": {
+                    "type": "number"
+                  },
+                  "values": {
+                    "type": "array"
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "flag",
+                      "drop",
+                      "coerce"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "reporting": {
+          "type": "object",
+          "properties": {
+            "log_level": {
+              "type": "string",
+              "enum": [
+                "debug",
+                "info",
+                "warn",
+                "error"
+              ]
+            },
+            "show_summary": {
+              "type": "boolean"
+            },
+            "show_details": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}
