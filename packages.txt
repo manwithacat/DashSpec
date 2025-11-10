@@ -1,4 +1,0 @@
-# System packages required for the application
-# These will be installed via apt-get on Streamlit Cloud
-
-# No additional system packages required for this application
