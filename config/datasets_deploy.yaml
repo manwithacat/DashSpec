@@ -1,0 +1,111 @@
+# Deployment Configuration with Sampling for Streamlit Cloud
+# Target: Keep total data size under 100MB for fast deployment
+
+datasets:
+  - name: us_accidents
+    kaggle_id: sobhanmoosavi/us-accidents
+    description: US Accidents (2016 - 2023)
+    project_category: Transportation & Safety
+    url: https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
+    enabled: true
+    sampling:
+      enabled: true
+      max_rows: 10000  # 974MB → ~10MB (more aggressive)
+      strategy: stratified
+      stratify_column: state  # Preserve geographic distribution
+
+  - name: amazon_food_reviews
+    kaggle_id: snap/amazon-fine-food-reviews
+    description: Amazon Fine Food Reviews
+    project_category: E-commerce & Retail
+    url: https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
+    enabled: true
+    sampling:
+      enabled: true
+      max_rows: 10000  # 162MB → ~5MB (more aggressive)
+      strategy: random
+
+  - name: credit_card_fraud
+    kaggle_id: mlg-ulb/creditcardfraud
+    description: Credit Card Fraud Detection
+    project_category: Finance & Risk
+    url: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+    enabled: true
+    sampling:
+      enabled: true
+      max_rows: 50000  # 48MB → ~5MB
+      strategy: stratified
+      stratify_column: Class  # Preserve fraud/non-fraud ratio
+
+  - name: us_pollution
+    kaggle_id: sogun3/uspollution
+    description: US Pollution Data (2000-2016)
+    project_category: Environmental
+    url: https://www.kaggle.com/datasets/sogun3/uspollution
+    enabled: true
+    sampling:
+      enabled: true
+      max_rows: 100000  # 24MB → ~5MB
+      strategy: stratified
+      stratify_column: state  # Preserve geographic distribution
+
+  - name: power_consumption
+    kaggle_id: uciml/electric-power-consumption-data-set
+    description: Electric Power Consumption
+    project_category: Energy & Utilities
+    url: https://www.kaggle.com/datasets/uciml/electric-power-consumption-data-set
+    enabled: false  # Disabled - no CSV files found
+    sampling:
+      enabled: true
+      max_rows: 100000  # 24MB → ~5MB
+      strategy: time_series
+      time_column: DateTime  # Preserve temporal patterns
+
+  - name: spotify_tracks
+    kaggle_id: maharshipandya/-spotify-tracks-dataset
+    description: Spotify Tracks Dataset
+    project_category: Entertainment
+    url: https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset
+    enabled: true
+    sampling:
+      enabled: true
+      max_rows: 50000  # 8.7MB → ~4MB
+      strategy: random
+
+  # Small datasets - no sampling needed (< 3MB)
+  - name: tmdb_movies
+    kaggle_id: tmdb/tmdb-movie-metadata
+    description: TMDB 5000 Movie Dataset
+    project_category: Entertainment
+    url: https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
+    enabled: true
+    # No sampling - already small (2MB)
+
+  - name: network_intrusion
+    kaggle_id: sampadab17/network-intrusion-detection
+    description: Network Intrusion Detection
+    project_category: Cybersecurity
+    url: https://www.kaggle.com/datasets/sampadab17/network-intrusion-detection
+    enabled: true
+    # No sampling - already small (< 1MB)
+
+  - name: ibm_hr_attrition
+    kaggle_id: pavansubhasht/ibm-hr-analytics-attrition-dataset
+    description: IBM HR Analytics Employee Attrition
+    project_category: Human Resources
+    url: https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset
+    enabled: true
+    # No sampling - already small (69K)
+
+  - name: food_price_inflation
+    kaggle_id: amandaroseknudsen/foodprices
+    description: Global Food Price Inflation Data
+    project_category: Economics
+    url: https://www.kaggle.com/datasets/amandaroseknudsen/foodprices
+    enabled: false  # Disabled - 403 Forbidden error
+    # No sampling - already small (126K)
+
+# ETL Configuration
+max_workers: 2
+chunk_size: 10000
+compression: snappy
