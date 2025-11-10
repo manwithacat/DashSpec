@@ -1,0 +1,90 @@
+# Dashboard DSL Design Card
+# Version: 1.0.0
+
+dsl_name: "DashSpec"
+version: "1.0.0"
+
+purpose: >
+  A declarative, verifiable DSL for specifying data-driven dashboards from preprocessed Parquet files.
+  Enables reproducible, auditable visualizations that can be rendered in multiple frameworks
+  (Streamlit for Python, React/Plotly for JavaScript).
+
+non_goals:
+  - Real-time data streaming or live updates
+  - Complex data transformations (ETL is pre-done)
+  - Custom JavaScript/Python code injection
+  - Network or filesystem access during rendering
+  - User authentication or authorization
+
+core_entities:
+  - DataSource: References a preprocessed Parquet file with schema validation
+  - Filter: Declarative field-based filtering (no arbitrary expressions)
+  - Metric: Aggregation or calculation over data fields
+  - Visualization: Chart specification with type, fields, and display properties
+  - Layout: Dashboard page structure and component arrangement
+
+total_semantics:
+  - Every valid dashboard spec produces exactly one deterministic output
+  - All field references must exist in the data source schema
+  - All aggregations have well-defined null handling
+  - Numeric precision is fixed (3 decimal places)
+  - Date/time operations use ISO 8601 only
+
+serialization:
+  format: "YAML"
+  json_roundtrip: true
+  notes: "YAML for human authoring, JSON for machine processing"
+
+versioning:
+  scheme: "semver"
+  field_name: "dsl_version"
+  current: "1.0.0"
+  compatibility: "Reject unknown versions; warn on minor version mismatches"
+
+canonical_form:
+  key_order: "alphabetical within sections (dsl_version always first)"
+  whitespace: "2-space indentation, no trailing spaces"
+  numeric_precision: "3 decimal places for floats"
+  array_sorting: "by 'id' field if present, otherwise insertion order"
+  comments: "preserved during round-trip"
+
+errors_as:
+  format: "machine codes with repair hints"
+  structure: "code, message, path (JSON pointer), repair_hint"
+  examples:
+    - "UNKNOWN_FIELD"
+    - "MISSING_REQUIRED"
+    - "TYPE_MISMATCH"
+    - "INVALID_AGGREGATION"
+    - "SCHEMA_VIOLATION"
+
+targets:
+  - language: "python"
+    framework: "streamlit"
+    version: ">=1.0"
+  - language: "javascript"
+    framework: "react"
+    library: "plotly.js"
+    version: ">=2.0"
+
+constraints:
+  max_visualizations_per_page: 20
+  max_filters_per_page: 10
+  max_metrics: 50
+  supported_chart_types:
+    - "line"
+    - "bar"
+    - "scatter"
+    - "histogram"
+    - "box"
+    - "heatmap"
+    - "pie"
+    - "table"
+  supported_aggregations:
+    - "sum"
+    - "mean"
+    - "median"
+    - "count"
+    - "min"
+    - "max"
+    - "std"

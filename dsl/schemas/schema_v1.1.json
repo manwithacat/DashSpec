@@ -1,0 +1,247 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dashspec.io/schema/v1.1",
+  "title": "DashSpec Dashboard Specification v1.1",
+  "description": "Enhanced schema with additional visualization types and role-based validation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["dsl_version", "dashboard"],
+  "properties": {
+    "dsl_version": {
+      "type": "string",
+      "pattern": "^1\\.[01]\\.\\d+$",
+      "description": "Semantic version of the DSL (1.0.x or 1.1.x)"
+    },
+    "dashboard": {
+      "$ref": "#/definitions/Dashboard"
+    }
+  },
+  "definitions": {
+    "Dashboard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "data_source", "pages"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "title": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "description": { "type": "string", "maxLength": 500 },
+        "metadata": {
+          "type": "object",
+          "description": "Dataset metadata for context and human interpretability",
+          "properties": {
+            "dataset_name": { "type": "string" },
+            "source": { "type": "string" },
+            "rows": { "type": "integer" },
+            "description": { "type": "string" },
+            "use_cases": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "data_source": { "$ref": "#/definitions/DataSource" },
+        "pages": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 20,
+          "items": { "$ref": "#/definitions/Page" }
+        }
+      }
+    },
+    "DataSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "path"],
+      "properties": {
+        "type": { "type": "string", "enum": ["parquet", "csv"] },
+        "path": { "type": "string" },
+        "schema": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": ["string", "integer", "float", "boolean", "datetime", "category"]
+          }
+        }
+      }
+    },
+    "Page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "layout"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "title": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "description": { "type": "string", "maxLength": 500 },
+        "filters": {
+          "type": "array",
+          "maxItems": 10,
+          "items": { "$ref": "#/definitions/Filter" }
+        },
+        "metrics": {
+          "type": "array",
+          "maxItems": 50,
+          "items": { "$ref": "#/definitions/Metric" }
+        },
+        "layout": { "$ref": "#/definitions/Layout" }
+      }
+    },
+    "Filter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "field", "type"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "field": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["range", "slider", "select", "multiselect", "date_range"]
+        },
+        "label": { "type": "string" },
+        "default": {}
+      }
+    },
+    "Metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "field", "aggregation"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "field": { "type": "string" },
+        "aggregation": {
+          "type": "string",
+          "enum": ["sum", "mean", "median", "count", "count_unique", "min", "max", "std"]
+        },
+        "label": { "type": "string" },
+        "format": { "type": "string" },
+        "filter": { "$ref": "#/definitions/MetricFilter" }
+      }
+    },
+    "MetricFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "operator", "value"],
+      "properties": {
+        "field": { "type": "string" },
+        "operator": {
+          "type": "string",
+          "enum": ["eq", "ne", "gt", "gte", "lt", "lte", "in", "not_in"]
+        },
+        "value": {}
+      }
+    },
+    "Layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "components"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["single", "grid", "tabs"]
+        },
+        "components": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": { "$ref": "#/definitions/Component" }
+        }
+      }
+    },
+    "Component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "type": {
+          "type": "string",
+          "enum": ["visualization", "metric_card", "text", "divider"]
+        },
+        "title": { "type": "string" },
+        "width": {
+          "type": "string",
+          "enum": ["full", "half", "third", "quarter"]
+        },
+        "metric_id": { "type": "string" },
+        "text": { "type": "string" },
+        "visualization": { "$ref": "#/definitions/Visualization" }
+      }
+    },
+    "Visualization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["chart_type"],
+      "properties": {
+        "chart_type": {
+          "type": "string",
+          "enum": [
+            "table", "summary", "histogram", "ecdf", "boxplot", "violin", "kde",
+            "scatter", "hexbin", "kde2d",
+            "line", "bar", "heatmap", "corr_heatmap",
+            "pie", "sunburst", "treemap"
+          ]
+        },
+        "roles": {
+          "type": "object",
+          "description": "Role-based field mapping",
+          "properties": {
+            "x": { "type": "string" },
+            "y": { "type": "string" },
+            "color": { "type": "string" },
+            "size": { "type": "string" },
+            "by": { "type": "string" },
+            "time": { "type": "string" }
+          }
+        },
+        "params": {
+          "type": "object",
+          "description": "Chart-specific parameters",
+          "properties": {
+            "bins": { "type": "integer", "minimum": 5, "maximum": 200 },
+            "log_x": { "type": "boolean" },
+            "log_y": { "type": "boolean" },
+            "bandwidth": { "type": "number" },
+            "resample": { "type": "string" },
+            "rolling_window": { "type": "integer" },
+            "method": { "type": "string", "enum": ["pearson", "spearman", "kendall"] },
+            "mask_upper": { "type": "boolean" },
+            "normalize": { "type": "string", "enum": ["true", "pred", "all", "none"] },
+            "columns": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "percentiles": {
+              "type": "array",
+              "items": { "type": "number", "minimum": 0, "maximum": 100 }
+            },
+            "trendline": { "type": "string", "enum": ["ols", "loess", "none"] },
+            "alpha": { "type": "number", "minimum": 0, "maximum": 1 },
+            "sampling": { "type": "integer", "description": "Subsample for performance" }
+          }
+        },
+        "x_field": { "type": "string", "description": "Legacy: use roles.x instead" },
+        "y_field": { "type": "string", "description": "Legacy: use roles.y instead" },
+        "color_field": { "type": "string", "description": "Legacy: use roles.color instead" },
+        "size_field": { "type": "string", "description": "Legacy: use roles.size instead" },
+        "aggregation": {
+          "type": "string",
+          "enum": ["sum", "mean", "median", "count", "min", "max", "std", "none"]
+        },
+        "group_by": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "sort": {
+          "type": "object",
+          "properties": {
+            "field": { "type": "string" },
+            "order": { "type": "string", "enum": ["asc", "desc"] }
+          }
+        },
+        "limit": { "type": "integer", "minimum": 1, "maximum": 100000 }
+      }
+    }
+  }
+}

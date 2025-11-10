@@ -1,0 +1,148 @@
+# Validation Rules for DashSpec DSL
+# Each rule defines: code, when, message_template, repair_hint, path_example
+
+validation_rules:
+  - code: "UNKNOWN_FIELD"
+    when: "A field reference doesn't exist in the data source schema"
+    message_template: "Field '{field}' not found in data source schema"
+    repair_hint: "Check available fields in the Parquet file schema. Use one of: {available_fields}"
+    path_example: "/dashboard/pages/0/layout/components/0/visualization/x_field"
+
+  - code: "MISSING_REQUIRED"
+    when: "A required field is not present in the specification"
+    message_template: "Required field '{field}' is missing"
+    repair_hint: "Add the required field '{field}' to this section"
+    path_example: "/dashboard/data_source"
+
+  - code: "TYPE_MISMATCH"
+    when: "A field value doesn't match the expected type"
+    message_template: "Field '{field}' has type '{actual_type}' but expected '{expected_type}'"
+    repair_hint: "Convert the value to type '{expected_type}'"
+    path_example: "/dashboard/pages/0/filters/0/default"
+
+  - code: "INVALID_AGGREGATION"
+    when: "An aggregation function is incompatible with the field type"
+    message_template: "Aggregation '{aggregation}' cannot be applied to field '{field}' of type '{type}'"
+    repair_hint: "Use a compatible aggregation for {type}: {compatible_aggregations}"
+    path_example: "/dashboard/pages/0/metrics/0/aggregation"
+
+  - code: "SCHEMA_VIOLATION"
+    when: "The dashboard spec doesn't conform to the JSON schema"
+    message_template: "Schema violation: {details}"
+    repair_hint: "Ensure the specification follows the DashSpec schema version {version}"
+    path_example: "/dashboard/pages/0/layout/type"
+
+  - code: "DUPLICATE_ID"
+    when: "Multiple components or elements have the same ID"
+    message_template: "Duplicate ID '{id}' found in {context}"
+    repair_hint: "Ensure all IDs are unique within their scope. Rename one of the duplicates"
+    path_example: "/dashboard/pages/0/layout/components/1/id"
+
+  - code: "INVALID_REFERENCE"
+    when: "A reference to another component doesn't exist"
+    message_template: "Reference to '{ref_type}' '{ref_id}' not found"
+    repair_hint: "Define {ref_type} with id '{ref_id}' or update the reference"
+    path_example: "/dashboard/pages/0/layout/components/0/metric_id"
+
+  - code: "INCOMPATIBLE_CHART_TYPE"
+    when: "Chart type is incompatible with the specified fields"
+    message_template: "Chart type '{chart_type}' requires {requirement} but got {actual}"
+    repair_hint: "For '{chart_type}', ensure you have: {required_fields}"
+    path_example: "/dashboard/pages/0/layout/components/0/visualization/chart_type"
+
+  - code: "LIMIT_EXCEEDED"
+    when: "A collection exceeds maximum allowed size"
+    message_template: "Exceeded maximum {item_type}: {count} > {max}"
+    repair_hint: "Reduce the number of {item_type} to {max} or fewer"
+    path_example: "/dashboard/pages/0/layout/components"
+
+  - code: "INVALID_VERSION"
+    when: "DSL version is not supported or malformed"
+    message_template: "Unsupported or invalid dsl_version: '{version}'"
+    repair_hint: "Use a supported version: {supported_versions}"
+    path_example: "/dsl_version"
+
+  - code: "INVALID_PATH"
+    when: "Data source path doesn't match expected pattern"
+    message_template: "Invalid data source path: '{path}'"
+    repair_hint: "Use format: data/processed/<dataset_name>.parquet"
+    path_example: "/dashboard/data_source/path"
+
+  - code: "FILTER_TYPE_MISMATCH"
+    when: "Filter type is incompatible with field type"
+    message_template: "Filter type '{filter_type}' cannot be used with field '{field}' of type '{type}'"
+    repair_hint: "For {type} fields, use: {compatible_filter_types}"
+    path_example: "/dashboard/pages/0/filters/0/type"
+
+  - code: "CIRCULAR_DEPENDENCY"
+    when: "Components have circular references"
+    message_template: "Circular dependency detected involving: {components}"
+    repair_hint: "Remove circular references to create a valid dependency graph"
+    path_example: "/dashboard/pages/0"
+
+  - code: "MISSING_DATA_SOURCE"
+    when: "Referenced Parquet file doesn't exist"
+    message_template: "Data source file not found: '{path}'"
+    repair_hint: "Ensure the Parquet file exists at '{path}' or run the ETL pipeline"
+    path_example: "/dashboard/data_source/path"
+
+  - code: "EMPTY_COLLECTION"
+    when: "A required array/collection is empty"
+    message_template: "Collection '{field}' cannot be empty"
+    repair_hint: "Add at least one item to '{field}'"
+    path_example: "/dashboard/pages"
+
+compatibility_checks:
+  aggregations:
+    numeric:
+      - "sum"
+      - "mean"
+      - "median"
+      - "min"
+      - "max"
+      - "std"
+      - "count"
+    categorical:
+      - "count"
+    datetime:
+      - "min"
+      - "max"
+      - "count"
+
+  filter_types:
+    numeric:
+      - "range"
+      - "slider"
+    categorical:
+      - "select"
+      - "multiselect"
+    datetime:
+      - "date_range"
+    boolean:
+      - "select"
+
+  chart_requirements:
+    line:
+      required: ["x_field", "y_field"]
+      optional: ["color_field"]
+    bar:
+      required: ["x_field", "y_field"]
+      optional: ["color_field"]
+    scatter:
+      required: ["x_field", "y_field"]
+      optional: ["color_field", "size_field"]
+    histogram:
+      required: ["x_field"]
+      optional: []
+    box:
+      required: ["y_field"]
+      optional: ["x_field", "color_field"]
+    heatmap:
+      required: ["x_field", "y_field"]
+      optional: ["color_field"]
+    pie:
+      required: ["x_field", "y_field"]
+      optional: []
+    table:
+      required: []
+      optional: ["x_field", "y_field"]
